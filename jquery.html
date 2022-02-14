@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="test.css">
+    <title>Apprendre Jquery</title>
+
+    <style media="screen">
+
+    </style>
+  </head>
+  <body>
+    <h1 class="titre">Manipulation du <mark>DOM HTML</mark></h1>
+    <h2 class="t">dom manipule</h2>
+    <a>Un lien</a>
+
+    <span id="sp2"></span>
+
+    <script src="bootstrap/js/jquery-3.6.0.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+        let at = $('h1').attr('class');
+
+        $('#sp2').text('valeur de classe h1 : ' + at);
+
+        $('h2').attr('class', 'titre');
+
+        $('a').attr({
+          href:'http://pierre-giraud.com',
+          target:'_blank'
+        });
+
+      });
+    </script>
+  </body>
+</html>

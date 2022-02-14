@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>My webpage</title>
+  </head>
+  <body>
+    <ul id='navigation'>
+      {% for item in navigation %}
+        <li> <a href="{{item.href}}">{{item.caption}}</a> </li>
+      {% endfor %}
+    </ul>
+
+    <h1>My webpage</h1>
+    {{ a_varibale }}
+
+    foo.__getitem__('bar') // verifier un elt bar dans foo
+    getattr(foo, 'bar') // Rechercher un attribut bar dans foo
+
+    {{ name|striptags|title }}title(striptags(name)) //FILTRE  pour supprimer toutes les balises html du nom de la variable
+
+    {# a comment #}
+
+    <h1>{{ self.title() }}</h1>
+    {{ super() }} // rendre  le contenu du bloc parent
+
+    // specifier explicitement que les variables sont disponibles dans un bloc : "scoped" (Modificateur de portee)
+    {% for item in seq %}
+      <li>{% block loop_item scoped %}{{ item }}{% endblock %}</li>
+    {% endfor %}
+
+    {% block body required %}{% endblock %} // Marquer come requis, ne contienent que de l'espace et des commentaires
+
+    extends, includes, import : peuvent prendre un objet modele au lieu du nom d'un modele a charger
+    if debug_mode:
+      layout = env.get_template("debug_layout.html")
+    else:
+      layout = env.get_template("layout.html")
+
+    user_detail = env.get_template("user/detail.html", layout=layout)
+
+    {{ user.username|e }} // echappement manuel si la variable peut inclure l'une des variables suivantes (>,<,& ou '')
+    Markup, |safe // envelopper les donnees sures, mais non marquees
+  </body>
+</html>
